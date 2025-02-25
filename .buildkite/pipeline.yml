@@ -1,0 +1,24 @@
+steps:
+  - label: "Build and Get Artifact"
+    command: "cd hello && go build -o ./my-hello-app"
+    key: "build-step"
+    artifact_paths: "hello/my-hello-app"
+    plugins:
+      - docker#v5.11.0:
+          image: "golang:1.18.0"
+          mount-buildkite-agent: true
+  - label: "Get Name Input"
+    input: "Please input your name"
+    fields:
+      - text: "Your name"
+        key: "name"
+    key: "input-step"
+    depends_on: ["build-step"]
+  - label: "Execution"
+    commands:
+      - buildkite-agent artifact download hello/my-hello-app . --step build-step
+      - cd hello
+      - chmod +x ./my-hello-app
+      - echo "Hello, $(buildkite-agent meta-data get name)!"
+      - ./my-hello-app "$(buildkite-agent meta-data get name)"
+    depends_on: ["input-step"]
