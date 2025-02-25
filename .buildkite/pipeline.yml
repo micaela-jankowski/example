@@ -17,3 +17,7 @@ steps:
   - label: "Execution"
     command: ".buildkite/execution.sh"
     depends_on: ["input-step"]
+    plugins:
+      - docker#v5.12.0:
+          image: "golang:1.18.0"
+          mount-buildkite-agent: true
