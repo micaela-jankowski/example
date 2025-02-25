@@ -1,8 +1,15 @@
 steps:
   - label: "Build and Get Artifact"
     command: |
+      pwd
+      echo "-----1------"
+      ls -l
       cd hello 
+      echo "-----2------"
+      ls -l
       go build -o ./my-hello-app
+      echo "-----3------"
+      ls -l
       file ./my-hello-app
       ls -l ./my-hello-app
     key: "build-step"
