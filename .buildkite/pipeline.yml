@@ -15,7 +15,7 @@ steps:
     key: "input-step"
     depends_on: ["build-step"]
   - label: "Execution"
-    command: ".buildkite/execution.sh"
+    command: " chmod +x .buildkite/execution.sh && .buildkite/execution.sh"
     depends_on: ["input-step"]
     plugins:
       - docker#v5.11.0:
