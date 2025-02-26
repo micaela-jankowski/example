@@ -8,10 +8,12 @@ steps:
       echo "-----2------"
       ls -l
       go build -o ./my-hello-app
+      whoami
       echo "-----3------"
       ls
-      echo "check file .hello/my-hello-app"
-      file .hello/my-hello-app
+      echo "file $(pwd)/my-hello-app:"
+      file $(pwd)/my-hello-app
+      uname -m
     key: "build-step"
     artifact_paths: "hello/my-hello-app"
     plugins:
