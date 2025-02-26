@@ -17,7 +17,5 @@ steps:
     key: "input-step"
     depends_on: ["build-step"]
   - label: "Execution"
-    command: |
-      chmod +x .buildkite/execution.sh 
-      .buildkite/execution.sh
+    command: .buildkite/execution.sh
     depends_on: ["input-step"]
