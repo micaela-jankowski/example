@@ -11,3 +11,5 @@ Notes from my experience with hello app exercise.
 - After many tests, I decided to remove the docker plugin from the pipeline due a what I believe is another compatibility issue with OSX.
   - Running the first step in docker container worked with v5.11.0 but the final execution step would fail with error message: "cannot execute binary file". This execution was running on local machine instead of docker container but comparing architectures and checking file permissions, I could not find a standout issue that would prevent execution.
   - I ran the execution step in a docker container in an interactive session and the file executed without issue. But when I added the docker plugin with golang image to the pipeline, it resulted in error message: "Exec format error". Maybe another mount or path problem.
+
+Next I will be trying out the docker-compose plugin as an alternative.

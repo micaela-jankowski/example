@@ -1,20 +1,16 @@
 steps:
-  - label: "Build and Get Artifact"
-    command: |
-      cd hello 
-      go build -o ./my-hello-app
+  - label: "Build and Upload Artifact"
+    command: cd hello && go build -o ./my-hello-app
     key: "build-step"
     artifact_paths: "hello/my-hello-app"
-
-  - label: "Get Name Input"
-    input: "Please input your name"
+  - label: "Get User Name"
+    input: "Please input your name:"
     fields:
-      - text: "Your name"
+      - text: "Your Name"
         key: "name"
     key: "input-step"
     depends_on: ["build-step"]
-
   - label: "Execution"
-    command: |
-      .buildkite/execution.sh
+    command: ".buildkite/execution.sh"
+    key: "execution-step"
     depends_on: ["input-step"]
