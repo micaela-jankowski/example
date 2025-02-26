@@ -3,10 +3,9 @@ steps:
     command: cd hello && go build -o ./my-hello-app
     key: "build-step"
     artifact_paths: "hello/my-hello-app"
-  - label: "Get User Name"
-    input: "Please input your name:"
+  - input: "Get User Name"
     fields:
-      - text: "Your Name"
+      - text: "Please Input Your Name"
         key: "name"
     key: "input-step"
     depends_on: ["build-step"]
