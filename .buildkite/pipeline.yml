@@ -11,9 +11,8 @@ steps:
       whoami
       echo "-----3------"
       ls
-      echo "file $(pwd)/my-hello-app:"
-      file $(pwd)/my-hello-app
       uname -m
+      file ./my-hello-app
     key: "build-step"
     artifact_paths: "hello/my-hello-app"
     plugins:
