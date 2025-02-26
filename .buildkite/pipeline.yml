@@ -1,18 +1,8 @@
 steps:
   - label: "Build and Get Artifact"
     command: |
-      pwd
-      echo "-----1------"
-      ls -l
       cd hello 
-      echo "-----2------"
-      ls -l
       go build -o ./my-hello-app
-      whoami
-      echo "-----3------"
-      ls
-      uname -m
-      file ./my-hello-app
     key: "build-step"
     artifact_paths: "hello/my-hello-app"
     plugins:
