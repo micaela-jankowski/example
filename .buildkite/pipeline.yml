@@ -11,7 +11,7 @@ steps:
       echo "-----3------"
       ls
       echo "check file ./my-hello-app"
-      file my-hello-app
+      file /my-hello-app
     key: "build-step"
     artifact_paths: "hello/my-hello-app"
     plugins:
