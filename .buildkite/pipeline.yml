@@ -10,8 +10,8 @@ steps:
       go build -o ./my-hello-app
       echo "-----3------"
       ls
-      echo "check file ./my-hello-app"
-      file /my-hello-app
+      echo "check file hello/my-hello-app"
+      file hello/my-hello-app
     key: "build-step"
     artifact_paths: "hello/my-hello-app"
     plugins:
